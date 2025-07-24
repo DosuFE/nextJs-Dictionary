@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+header{
+    position: fixed;
+    /* top: 0; */
+    width: 100%;
+}
+
+.search-container{
+    margin-top: 50px;
+}
