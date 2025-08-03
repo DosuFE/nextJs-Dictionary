@@ -7,7 +7,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ toggleTheme, theme }) => {
   return (
-    <header className="flex items-center justify-between px-4 py-3 md:px-10 bg-gradient-to-r from-blue-500 to-purple-500 dark:from-gray-700 dark:to-gray-900 shadow-lg">
+    <header className="z-40 flex items-center justify-between px-4 py-3 md:px-10 bg-gradient-to-r from-blue-500 to-purple-500 dark:from-gray-700 dark:to-gray-900 shadow-lg">
       <h1
         className="text-2xl sm:text-3xl font-semibold text-white dark:text-gray-100"
         style={{ fontFamily: 'fantasy' }}

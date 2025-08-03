@@ -16,7 +16,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ word, setWord, searchWord }) => {
       <div className="flex items-center bg-gradient-to-r from-blue-100 to-blue-300 rounded-lg shadow-md shadow-black/20">
         <input
           type="text"
-          className="p-3 border-none md:w-xl lg:w-3xl
+          className="z-10 p-3 border-none md:w-xl lg:w-3xl
           rounded-l-lg focus:outline-none shadow-md
           focus:ring-2 focus:ring-blue-500 placeholder:text-black"
           placeholder="Search for a word..."

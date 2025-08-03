@@ -19,13 +19,13 @@ const MeaningList: React.FC<MeaningListProps> = ({ meanings }) => {
     <div>
       {meanings.map((meaning, index) => (
         <div key={index} className="mb-4">
-          <h3 className="text-xl font-medium text-gray-800">{meaning.partOfSpeech}</h3>
+          <h3 className="text-xl font-medium text-gray-100">{meaning.partOfSpeech}</h3>
           <ul className="list-disc list-inside ml-4">
             {meaning.definitions.map((def, defIndex) => (
-              <li key={defIndex} className="text-gray-600 mb-1">
+              <li key={defIndex} className="text-gray-50 mb-1">
                 {def.definition}
                 {def.example && (
-                  <p className="text-gray-600 italic ml-4">Example: &quot;{def.example}&quot;</p>
+                  <p className="text-gray-50 italic ml-4">Example: &quot;{def.example}&quot;</p>
                 )}
               </li>
             ))}
