@@ -85,9 +85,12 @@ export default function Dictionary() {
     setError(null);
     setDefinition(null);
     try {
-      const programmingWord = programmingWords.find((entry) => entry.word.toLowerCase() === word.toLowerCase());
+      const programmingWord = programmingWords.find(
+        (entry) => entry.word.toLowerCase() === word.toLowerCase()
+      );
       if (programmingWord) {
         setDefinition(programmingWord);
+        setLoading(false);
         return;
       }
 
@@ -96,18 +99,19 @@ export default function Dictionary() {
         throw new Error('Word not found');
       }
       const data: DictionaryEntry[] = await response.json();
-
-      const predefinedWord = programmingWords.find((entry) => entry.word.toLowerCase() === data[0].word.toLowerCase());
-      if (predefinedWord) {
-        setDefinition(predefinedWord);
-      } else {
-        setDefinition(data[0]);
-      }
+      setDefinition(data[0]);
     } catch (err: unknown) {
       if (err instanceof Error) {
-        setError(err.message);
+        if (err.message === 'Word not found') {
+          setError('Word not found');
+        } else if (err.name === 'TypeError') {
+          // TypeError is thrown for network errors by fetch
+          setError('Internet Connection Error, Kindly Check Your Connection');
+        } else {
+          setError('An unexpected error occurred');
+        }
       } else {
-        setError('An unknown error occurred');
+        setError('An unexpected error occurred');
       }
     } finally {
       setLoading(false);
